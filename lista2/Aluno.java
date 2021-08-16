@@ -72,7 +72,7 @@ public class Aluno {
     }
 
     public String toString(){
-        return "Número do aluno: " + this.numeroAluno + " Nome: " + this.nome + " P1: " + this.p1 + " P2: " + this.p2;
+        return "Número do aluno: " + this.numeroAluno + " Nome: " + this.nome + " P1: " + this.p1 + " P2: " + this.p2 + " Média: " + this.notaFinal();
     }
-    
+
 }
