@@ -74,9 +74,16 @@ public class Cliente {
 
     // realizar o depósito
     public void realizarDeposito(float x){
-        this.saldo = this.saldo + x;
+       this.setSaldo(this.saldo + x); // garanto o encapsulamento
     }
 
     // realizar o saque
+    public void realizarSaque(float x){
+        this.setSaldo(this.saldo - x); // garanto o encapsulamento
+    }
 
+    public String toString(){ // converte o objeto em uma String
+        return "Nome: " + this.nome + " Número da agência: " + this.numeroAgencia +
+        " Conta do cliente: " + this.numeroConta + "Saldo: " + this.saldo;
+    }
 }
