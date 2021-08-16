@@ -15,11 +15,22 @@ public class Cliente {
         this.setNome(nome);
         this.setSaldo(saldo);
     }
+    // setters fazem as verificações de restrição de valores das variáveis
+    // getters retornam os valores das variáveis
+
+
     // encapsulamento de métodos -> para eles não serem alterados
     // quem poderia alterá-los? classes filhas 
     final void setSaldo(float saldo) {
-        this.saldo = saldo; 
+        if (saldo >= 0){
+            this.saldo = saldo; 
+        }
+        else {
+            System.out.println("Saldo não pode ficar negativo");
+        }
+       
     }
+
     final void setNumeroAgencia(String numeroAgencia) {
         if ((numeroAgencia.length() == 6) && (numeroAgencia.charAt(4) == '-')){
             this.numeroAgencia = numeroAgencia;
@@ -45,4 +56,27 @@ public class Cliente {
         }
     }
     
+    public float getSaldo(){
+        return this.saldo;
+    }
+
+    public String getNumeroConta(){
+        return this.numeroConta;
+    }
+
+    public String getNumeroAgencia(){
+        return this.numeroAgencia;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    // realizar o depósito
+    public void realizarDeposito(float x){
+        this.saldo = this.saldo + x;
+    }
+
+    // realizar o saque
+
 }
