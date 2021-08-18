@@ -13,5 +13,10 @@ public class TestaCliente {
 
         // teste triste
         Cliente obj2 = new Cliente("67453-26", "82461-9", "Henry", -400);
+        obj2.realizarDeposito(1000);
+        obj2.realizarSaque(300);
+
+        System.out.println(obj2.toString());
+
     }
 }

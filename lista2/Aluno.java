@@ -67,10 +67,27 @@ public class Aluno {
 
     }
 
+    // getters
+    public int getNumeroAluno(){
+        return this.numeroAluno;
+    }
+    public int getIdade(){
+        return this.idade;
+    }
+    public float getP1(){
+        return this.p1;
+    }
+    public float getP2(){
+        return this.p2;
+    }
+    public String getNome(){
+        return this.nome;
+    }
+    
     public float notaFinal(){
         return (this.p1 + this.p2) / 2;
     }
-
+    
     public String toString(){
         return "Número do aluno: " + this.numeroAluno + " Nome: " + this.nome + " P1: " + this.p1 + " P2: " + this.p2 + " Média: " + this.notaFinal();
     }
