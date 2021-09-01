@@ -67,9 +67,16 @@ public class Carrinho {
         this.itens.add(new ItemCarrinho(codigo, descricao, qtde, preco));
     }
     
-    public boolean removeItemCarrinho(int codigo, String descricao, int qtde, float preco){
+    public boolean removeItemCarrinho(int codigo){
         // retorna se conseguiu remover (true ou false)
-        return this.itens.remove(new ItemCarrinho(codigo, descricao, qtde, preco));
+        // vamos procurar o objeto
+        for(int i = 0; i < this.itens.size();i++){
+            if (itens.get(i).getCodigo() == codigo){
+                this.itens.remove(i); // conseguiu remover
+                return true;
+            }
+        }
+        return false; // não removeu
     }
 
     public String toString(){

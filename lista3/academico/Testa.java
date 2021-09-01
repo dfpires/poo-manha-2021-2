@@ -4,6 +4,7 @@ public class Testa {
     
     public static void main(String args[]){
 
+        // agregação
         Aluno al1 = new Aluno(111, "Keflen", 19);
         Aluno al2 = new Aluno(222, "Tulio", 20);
         Aluno al3 = new Aluno(333, "Donizete", 21);
