@@ -12,15 +12,17 @@ public class Carrinho {
     // o que vai mudar com a composição - relacionado a agregação
     private ArrayList<ItemCarrinho> itens;
     public Carrinho() {
+        // aloca espaço na memória para o ArrayList
+        this.setItens(new ArrayList<ItemCarrinho>());
     }
-    public Carrinho(int codigo, float valor, String entrega, String formaPagto, Date data,
-    ArrayList<ItemCarrinho> itens) {
+    public Carrinho(int codigo, float valor, String entrega, String formaPagto, Date data) {
         this.codigo = codigo;
         this.valor = valor;
         this.entrega = entrega;
         this.formaPagto = formaPagto;
         this.data = data;
-        this.itens = itens;
+         // aloca espaço na memória para o ArrayList
+         this.setItens(new ArrayList<ItemCarrinho>());
     }
     public int getCodigo() {
         return codigo;
@@ -28,7 +30,8 @@ public class Carrinho {
     public ArrayList<ItemCarrinho> getItens() {
         return itens;
     }
-    public void setItens(ArrayList<ItemCarrinho> itens) {
+    //impossibilita de se atribuir um vetor de itens do carrinho fora da classe
+    private void setItens(ArrayList<ItemCarrinho> itens) {
         this.itens = itens;
     }
     public Date getData() {
@@ -59,5 +62,17 @@ public class Carrinho {
         this.codigo = codigo;
     }
 
+    public void addItemCarrinho(int codigo, String descricao, int qtde, float preco){
+        // boa diferença entre agregação e composição
+        this.itens.add(new ItemCarrinho(codigo, descricao, qtde, preco));
+    }
     
+    public boolean removeItemCarrinho(int codigo, String descricao, int qtde, float preco){
+        // retorna se conseguiu remover (true ou false)
+        return this.itens.remove(new ItemCarrinho(codigo, descricao, qtde, preco));
+    }
+
+    public String toString(){
+        return "Código " + this.codigo + " Valor: " + this.valor + " forma de entrega: " + this.entrega + " forma de pagamento: " + this.formaPagto + " Data: " + this.data + " \n Itens: " + this.itens.toString();
+    }
 }
