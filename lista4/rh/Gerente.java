@@ -1,4 +1,4 @@
-package lista4;
+package lista4.rh;
 
 public class Gerente extends Funcionario{
     // o extends faz com que gerente tenha nome, cpf e salário do pai

@@ -1,4 +1,4 @@
-package lista4;
+package lista4.rh;
 
 public class Assistente extends Funcionario{
      // o extends faz com que assistente tenha nome, cpf e salário do pai
@@ -28,4 +28,10 @@ public class Assistente extends Funcionario{
     public String toString(){
         return super.toString() + " Hora-Extra: " + this.horaExtra;
     }    
+    
+    @Override
+    public void receberSalario(){
+        // salário + 30 reais por hora-extra
+        System.out.println(" Salário total: " + this.salario + 30*this.horaExtra);
+    }
 }

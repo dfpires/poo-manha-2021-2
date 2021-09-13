@@ -1,8 +1,9 @@
-package lista4;
+package lista4.rh;
 
 // classe pai 
 // a única novidade é o protected das variáveis
-public class Funcionario {
+// a nossa classe será abstrata -> não pode ser instanciada
+public abstract class Funcionario {
     protected String nome;
     protected String cpf;
     protected float salario;
@@ -37,4 +38,7 @@ public class Funcionario {
     public String toString(){
         return "Nome: " + this.nome + " CPF: " + this.cpf + " Salário: " + this.salario;
     }
+    // não conseguimos calcular o salário aqui, mas sim somente nas filhas
+    // aliás, nas filhas somos obrigados a implementar este método
+    public abstract void receberSalario();
 }
