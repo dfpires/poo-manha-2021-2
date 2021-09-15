@@ -32,6 +32,7 @@ public class Assistente extends Funcionario{
     @Override
     public void receberSalario(){
         // salário + 30 reais por hora-extra
-        System.out.println(" Salário total: " + this.salario + 30*this.horaExtra);
+        float aux = this.salario + 30*this.horaExtra;
+        System.out.println(" Salário total: " + aux);
     }
 }

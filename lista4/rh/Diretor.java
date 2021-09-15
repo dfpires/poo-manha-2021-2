@@ -21,5 +21,10 @@ public class Diretor extends Funcionario{
    public String toString(){
        return super.toString() + " Carro: " + this.carro;
    }
-    
+
+   @Override
+   public void receberSalario(){
+       // salário + 30 reais por hora-extra
+       System.out.println(" Salário total: " + this.salario + " 5% do valor do carro " + this.carro + "que tem");
+   }
 }
