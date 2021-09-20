@@ -21,4 +21,15 @@ public class B extends A{ // reutiliza as variáveis e métodos de A
     System.out.println("Método da classe B");
   }
 
+  protected int va;
+   
+    public void setVa(int va){
+        this.va = va;
+    }
+    public int getVa(){
+        return this.va;
+    }
+    public void ma(){
+        System.out.println("Método da classe A");
+    }
 }

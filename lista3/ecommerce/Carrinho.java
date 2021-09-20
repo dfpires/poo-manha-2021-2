@@ -62,11 +62,18 @@ public class Carrinho {
         this.codigo = codigo;
     }
 
+    // composição - correto
     public void addItemCarrinho(int codigo, String descricao, int qtde, float preco){
         // boa diferença entre agregação e composição
         this.itens.add(new ItemCarrinho(codigo, descricao, qtde, preco));
     }
     
+    // agregação
+    public void addItemCarrinho(ItemCarrinho itemCarrinho){
+        // boa diferença entre agregação e composição
+        this.itens.add(itemCarrinho);
+    }
+
     public boolean removeItemCarrinho(int codigo){
         // retorna se conseguiu remover (true ou false)
         // vamos procurar o objeto
