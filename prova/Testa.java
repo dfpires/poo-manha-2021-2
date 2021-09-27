@@ -11,6 +11,9 @@ public class Testa {
 
         exemploPolimorfismo(nmt);
 
-
     }
 }
+
+
+// 4. B
+// 5. B
