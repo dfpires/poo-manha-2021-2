@@ -1,12 +1,12 @@
 package prova;
 
-public class Carro {
+public class Computador {
     private int ram;
     private String modo;
     
-    public Carro() {
+    public Computador() {
     }
-    public Carro(int ram, String modo) {
+    public Computador(int ram, String modo) {
         this.setRam(ram);
         this.setModo(modo);
     }
@@ -17,7 +17,7 @@ public class Carro {
         return modo;
     }
     public void setModo(String modo) {
-        if ((modo.equals("ligado") || modo.equals("desligado")) {
+        if (modo.equals("ligado") || modo.equals("desligado")) {
             this.modo = modo;
         }
         else {
