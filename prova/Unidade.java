@@ -1,11 +1,13 @@
 package prova;
 
+// objeto-parte
 public class Unidade {
     private String cidade, estado;
     public Unidade() {
     }
     public Unidade(String cidade, String estado) {
-        this.setCidade(cidade);
+        this.setCidade(cidade); // -> mantenho o encapsulamento
+       // this.cidade = cidade; -> perco o encapsulamento
         this.setEstado(estado);
     }
     public String getCidade() {

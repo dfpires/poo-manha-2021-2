@@ -7,9 +7,9 @@ public abstract class Veiculo {
     public Veiculo() {
     }
     public Veiculo(int ano, float preco, String descricao) {
-        this.ano = ano;
-        this.preco = preco;
-        this.descricao = descricao;
+        this.setAno(ano);
+        this.setPreco(preco);
+        this.setDescricao(descricao);
     }
     public int getAno() {
         return ano;

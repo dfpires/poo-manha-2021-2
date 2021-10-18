@@ -16,6 +16,7 @@ public class Computador {
     public String getModo() {
         return modo;
     }
+    
     public void setModo(String modo) {
         if (modo.equals("ligado") || modo.equals("desligado")) {
             this.modo = modo;
@@ -24,6 +25,7 @@ public class Computador {
                System.out.println("Valor de modo é inválido");
         }
     }
+
     public void setRam(int ram) {
         if ((ram == 4) || (ram == 8) || (ram == 16) || (ram == 32)) {
             this.ram = ram;
@@ -32,5 +34,8 @@ public class Computador {
             System.out.println("Valor de memória RAM inválida");
         }
     }
-    
+
+    public void upgrade(int x){
+        this.setRam(this.ram + x);
+    }
 }

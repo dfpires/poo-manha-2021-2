@@ -1,5 +1,6 @@
 package prova;
 
+// objeto-parte
 public class Cliente {
     private String rg, nome;
     public Cliente() {
@@ -21,6 +22,6 @@ public class Cliente {
         this.rg = rg;
     }
     public String toString(){
-        return "Nome: " + this.nome + " RG: " + this.rg;
+        return "Nome: " + this.getNome() + " RG: " + this.rg;
     }
 }

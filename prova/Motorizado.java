@@ -25,7 +25,7 @@ public class Motorizado extends Veiculo{
     }
     @Override
     public String toString(){
-        return super.toString() + " Potência: " + this.potencia + " Combustível: " + this.combustivel;
+        return " Potência: " + this.potencia + " Combustível: " + this.combustivel + super.toString();
     }
     
 }
