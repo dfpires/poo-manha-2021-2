@@ -26,6 +26,20 @@ function insere(){
     carregaTabela()
 }
 
+function remove(id){
+    const resposta = confirm(`Deseja realmente excluir o paciente ${id}? `)
+    if (resposta){ // vamos remover
+        let req = new XMLHttpRequest()
+        req.open('DELETE', `http://localhost:8080/paciente/${id}` , true) // assíncrona
+        req.setRequestHeader('Content-Type', 'application/json')
+        req.send()
+        alert(`Paciente removido com sucesso`)
+        carregaTabela()// atualiza a lista de pacientes
+    }
+}
+function atualiza(){
+    alert(`Vamos atualizar`)
+}
 function carregaTabela(){
      // cria objeto de requisição
      let req = new XMLHttpRequest()
@@ -37,7 +51,7 @@ function carregaTabela(){
         let pacientes = JSON.parse(this.response)
         let conteudo = ""
         pacientes.forEach(element => {
-            conteudo = conteudo + `<tr> <td> ${element.id} </td> <td> ${element.cpf} </td> <td> ${element.peso} </td> <td> ${element.altura} </td> <td> ${element.idade} </td> <td> <i class="bi bi-trash"></i> </td> <td> <i class="bi bi-pencil"></i> </td> </tr>`
+            conteudo = conteudo + `<tr> <td> ${element.id} </td> <td> ${element.cpf} </td> <td> ${element.peso} </td> <td> ${element.altura} </td> <td> ${element.idade} </td> <td> <button onclick="remove(${element.id})">  <i class="bi bi-trash"></i> </button> </td> <td> <button onclick="atualiza()"> <i class="bi bi-pencil"></i> </button></td> </tr>`
         });
         // envia os dados para o HTML
         document.getElementById("conteudoTabela").innerHTML = conteudo
