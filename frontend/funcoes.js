@@ -26,7 +26,7 @@ function consultaMedicos(){
         let conteudo = ""
         let medicos = JSON.parse(this.response) // transforma resposta em JSON
         medicos.map( medico => {
-            conteudo = conteudo + `<tr> <td> ${medico.nome} </td> <td> ${medico.crm} </td> <td> ${medico.especialidade} </td></tr>`
+            conteudo = conteudo + `<tr> <td> ${medico.nome} </td> <td> ${medico.crm} </td> <td> ${medico.especialidade} </td> <td> <i onClick="removeMedico(${medico.id})" class="bi bi-trash"></i> </td> <td> <button onclick="atualizaMedico(${medico.id}, '${medico.nome}', '${medico.crm}', '${medico.especialidade}')"> <i class="bi bi-pencil"></i> </button></td></tr>`
         })
         document.getElementById("conteudoTabela").innerHTML = conteudo
     }
@@ -74,6 +74,17 @@ function insere(){
     carregaTabela()
 }
 
+function removeMedico(id){
+    let resp = confirm(`Deseja realmente excluir médico ${id}? `)
+    if (resp) {
+        let req = new XMLHttpRequest()
+        req.open('DELETE', `http://localhost:8080/medico/${id}`, true)
+        req.setRequestHeader('Content-Type', 'application/json')
+        req.send()
+        alert(`Médico removido com sucesso`)
+        consultaMedicos()
+    }
+}
 function remove(id){
     const resposta = confirm(`Deseja realmente excluir o paciente ${id}? `)
     if (resposta){ // vamos remover
@@ -85,6 +96,14 @@ function remove(id){
         carregaTabela()// atualiza a lista de pacientes
     }
 }
+
+function atualizaMedico(id, nome, crm, especialidade){
+    document.getElementById("nome").value = nome
+    document.getElementById("crm").value = crm
+    document.getElementById("especialidade").value = especialidade
+    document.getElementById("id").value = id
+}
+
 function atualiza(id, nome, cpf, peso, altura, idade){
     document.getElementById("nome").value = nome
     document.getElementById("cpf").value = cpf
@@ -104,7 +123,7 @@ function carregaTabela(){
         let pacientes = JSON.parse(this.response)
         let conteudo = ""
         pacientes.forEach(element => {
-            conteudo = conteudo + `<tr> <td> ${element.id} </td> <td> ${element.nome} </td> <td> ${element.cpf} </td> <td> ${element.peso} </td> <td> ${element.altura} </td> <td> ${element.idade} </td> <td> <button onclick="remove(${element.id})">  <i class="bi bi-trash"></i> </button> </td> <td> <button onclick="atualiza(${element.id}, ${element.nome}, ${element.cpf}, ${element.peso}, ${element.altura}, ${element.idade})"> <i class="bi bi-pencil"></i> </button></td> </tr>`
+            conteudo = conteudo + `<tr> <td> ${element.id} </td> <td> ${element.nome} </td> <td> ${element.cpf} </td> <td> ${element.peso} </td> <td> ${element.altura} </td> <td> ${element.idade} </td> <td> <button onclick="remove(${element.id})">  <i class="bi bi-trash"></i> </button> </td> <td> <button onclick="atualiza(${element.id}, '${element.nome}', '${element.cpf}', ${element.peso}, ${element.altura}, ${element.idade})"> <i class="bi bi-pencil"></i> </button></td> </tr>`
         });
         // envia os dados para o HTML
         document.getElementById("conteudoTabela").innerHTML = conteudo
