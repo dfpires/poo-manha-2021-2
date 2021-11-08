@@ -16,8 +16,22 @@ function cadastrarMedico(){
     req.setRequestHeader("Content-Type", "application/json")
     req.send(JSON.stringify(medico))
     alert(`Médico inserido com sucesso`)
+    consultaMedicos()
 }
 
+function consultaMedicos(){
+    let req = new XMLHttpRequest()
+    req.open('GET', 'http://localhost:8080/medico', true)
+    req.onload = function() {
+        let conteudo = ""
+        let medicos = JSON.parse(this.response) // transforma resposta em JSON
+        medicos.map( medico => {
+            conteudo = conteudo + `<tr> <td> ${medico.nome} </td> <td> ${medico.crm} </td> <td> ${medico.especialidade} </td></tr>`
+        })
+        document.getElementById("conteudoTabela").innerHTML = conteudo
+    }
+    req.send()
+}
 
 // insere paciente
 function insere(){
