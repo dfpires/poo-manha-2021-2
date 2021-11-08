@@ -3,12 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="styles.css">
         <title>Consumindo APIS do Spring Boot Suite</title>
-        <script src="funcoes.js"></script>
     </head>
-    <body onload="carregaTabela()">
+    <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#"> SAÚDE </a>
@@ -37,52 +34,24 @@
             </nav>
         </header>
         <main>
-           <div class="container">
-                <h3> Cadastro de Pacientes </h3>
+            <div class="container">
+               <h3> Cadastro de Médico </h3>
                <form>
-                   <!-- se o id estiver vazio, vamos inserir, senão vamos atualizar -->
-                   <input hidden id="id"/> <!-- campo que ajudará a saber se iremos inserir ou atualizar-->
-                   <div class="form-group"> 
+                   <div class="form-group">
                         <label for="nome"> Nome </label>
-                        <input type="text" class="form-control" id="nome"/> 
+                        <input class="form-control" type="text" id="nome" placeholder="Informe o nome"/>
                    </div>
-                   <div class="form-group"> 
-                        <label for="cpf"> CPF </label>
-                        <input type="text" class="form-control" id="cpf"/> 
+                   <div class="form-group">
+                        <label for="crm"> CRM </label>
+                        <input class="form-control" type="number" id="crm" placeholder="Informe o CRM"/>
                    </div>
-                   <div class="form-group"> 
-                        <label for="peso"> Peso </label>
-                        <input type="number" class="form-control" id="peso"/> 
+                   <div class="form-group">
+                        <label for="especialidade"> Especialidade </label>
+                        <input class="form-control" type="text" id="especialidade" placeholder="Informe a especialidade"/>
                     </div>
-                    <div class="form-group"> 
-                        <label for="altura"> Altura </label>
-                        <input type="number" class="form-control" id="altura"/> 
-                   </div>
-                   <div class="form-group"> 
-                     <label for="idade"> Idade </label>
-                        <input type="number" class="form-control" id="idade"/> 
-                    </div>
-                    <button onClick="insere()" type="button" class="btn btn-primary">Enviar</button>
-               </form>
-               <section>
-                   <h3 > Lista de Pacientes </h3>
-                   <table class="table">
-                        <theader>
-                            <th> Código </th>
-                            <th> Nome </th>
-                            <th> CPF </th>
-                            <th> Peso </th>
-                            <th> Altura </th>
-                            <th> Idade </th> 
-                            <th> Remover </th>
-                            <th> Editar </th>
-                        </theader>
-                        <tbody id="conteudoTabela">
-
-                        </tbody>
-                   </table>
-               </section>
-           </div>
+                    <button type="button" class="btn btn-primary" onClick="cadastraMedico()"> Enviar </button>
+               </form> 
+            </div>
         </main>
         <footer>
 
