@@ -1,3 +1,25 @@
+// cadastrar médico
+function cadastrarMedico(){
+    // recupera os dados do médico
+    let nome = document.getElementById("nome").value
+    let crm = Number(document.getElementById("crm").value)
+    let especialidade = document.getElementById("especialidade").value
+    // cria o objeto para inserção no BD
+    let medico = {
+        "nome": nome,
+        "crm": crm,
+        "especialidade": especialidade
+    }
+    // conecta no servidor de APIs
+    let req = new XMLHttpRequest()
+    req.open('POST', `http://localhost:8080/medico`, true) // conexão assíncrona
+    req.setRequestHeader("Content-Type", "application/json")
+    req.send(JSON.stringify(medico))
+    alert(`Médico inserido com sucesso`)
+}
+
+
+// insere paciente
 function insere(){
     // recupera os dados do usuário
     let nome = document.getElementById("nome").value
