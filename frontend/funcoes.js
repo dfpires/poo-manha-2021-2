@@ -4,18 +4,36 @@ function cadastrarMedico(){
     let nome = document.getElementById("nome").value
     let crm = Number(document.getElementById("crm").value)
     let especialidade = document.getElementById("especialidade").value
+    let id = document.getElementById("id").value
+    let verbo // POST para inserção ou PUT para atualização
+    
     // cria o objeto para inserção no BD
-    let medico = {
-        "nome": nome,
-        "crm": crm,
-        "especialidade": especialidade
+    let medico
+
+    if (id){
+        verbo = "PUT"
+        medico = {
+            "nome": nome,
+            "crm": crm,
+            "especialidade": especialidade,
+            "id": id
+        }
     }
+    else {
+        verbo = "POST"
+        medico = {
+            "nome": nome,
+            "crm": crm,
+            "especialidade": especialidade
+        }
+    }
+    
     // conecta no servidor de APIs
     let req = new XMLHttpRequest()
-    req.open('POST', `http://localhost:8080/medico`, true) // conexão assíncrona
+    req.open(verbo, `http://localhost:8080/medico`, true) // conexão assíncrona
     req.setRequestHeader("Content-Type", "application/json")
     req.send(JSON.stringify(medico))
-    alert(`Médico inserido com sucesso`)
+    alert(`Médico inserido/atualizado com sucesso`)
     consultaMedicos()
 }
 
