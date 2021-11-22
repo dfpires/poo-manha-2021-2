@@ -3,6 +3,7 @@ package fatecfranca.edu.br.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,23 +25,27 @@ public class MedicoController {
 	MedicoRepository injecao;
 	
 	@GetMapping
+	@CrossOrigin(origins = "*")
 	public List<Medico> get(){
 		return injecao.findAll();
 	}
 	
 	@PostMapping
+	@CrossOrigin(origins = "*")
 	public String add(@RequestBody Medico medico) {
 		injecao.save(medico);
 		return "medico inserido com sucesso";
 	}
 	
 	@DeleteMapping("/{id}")
+	@CrossOrigin(origins = "*")
 	public String remove(@PathVariable Long id) {
 		injecao.deleteById(id);
 		return "medico removido com sucesso";
 	}
 	
 	@PutMapping
+	@CrossOrigin(origins = "*")
 	public String put(@RequestBody Medico medico) {
 		injecao.save(medico); // se este paciente tiver id, e ele existir no banco, atualiza
 		// se este paciente não tiver id, ele insere no banco
