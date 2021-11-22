@@ -1,12 +1,18 @@
 package fatecfranca.edu.br;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fatecfranca.edu.br.model.Comentario;
+import fatecfranca.edu.br.model.PagamentoCartao;
+import fatecfranca.edu.br.model.PagamentoDinheiro;
 import fatecfranca.edu.br.model.Postagem;
+import fatecfranca.edu.br.model.repositories.PagamentoCartaoRepository;
+import fatecfranca.edu.br.model.repositories.PagamentoDinheiroRepository;
 import fatecfranca.edu.br.model.repositories.PostagemRepository;
 
 @SpringBootApplication
@@ -19,6 +25,12 @@ public class PostgresApplication implements CommandLineRunner{
 	// cria objeto de injeção de dependência da classe Postagem
 	@Autowired
 	PostagemRepository postagem;
+
+	@Autowired
+	PagamentoCartaoRepository pc;
+	
+	@Autowired
+	PagamentoDinheiroRepository pd;
 	
 	@Override
 	public void run(String...strings ) throws Exception {
@@ -46,6 +58,12 @@ public class PostgresApplication implements CommandLineRunner{
 		postagem.save(post);
 		
 		*/
+		
+		PagamentoCartao pagCartao = new PagamentoCartao("visa", 300, new Date());
+		pc.save(pagCartao);
+		
+		PagamentoDinheiro pagDinheiro = new PagamentoDinheiro(10, 200, new Date());
+		pd.save(pagDinheiro);
 		
 	}
 }
